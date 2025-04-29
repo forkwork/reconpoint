@@ -5,6 +5,15 @@ env = environ.FileAwareEnv()
 import mimetypes
 import os
 
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://0c5c1ea2a3c6b65a29715f5167b6c6c0@o4506446345666560.ingest.us.sentry.io/4506483406602240",
+    # Add data like request headers and IP for users,
+    # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
+    send_default_pii=True,
+)
+
 from reconPoint.init import first_run
 from reconPoint.utilities import ReconpointTaskFormatter
 
